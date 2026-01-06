@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>XV de Cami</title>
+
+  <style>
+    :root{
+      --bg:#0b0b12;
+      --card:rgba(255,255,255,.08);
+      --line:rgba(255,255,255,.14);
+      --txt:#fff;
+      --muted:rgba(255,255,255,.7);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--txt);
+    }
+    .wrap{max-width:900px;margin:auto;padding:32px 18px}
+    h1{
+      text-align:center;
+      font-size:64px;
+      margin:10px 0;
+      background:linear-gradient(180deg,#fff,#cfd6df);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+    .subtitle{text-align:center;color:var(--muted);margin-bottom:28px}
+    .card{
+      background:var(--card);
+      border-radius:20px;
+      padding:22px;
+      margin-bottom:22px;
+    }
+    .row{
+      display:grid;
+      grid-template-columns:130px 1fr;
+      gap:10px;
+      padding:10px 0;
+      border-bottom:1px dashed var(--line);
+    }
+    .row:last-child{border-bottom:none}
+    .label{font-weight:800}
+    .btn{
+      display:inline-block;
+      margin-top:12px;
+      padding:14px 22px;
+      background:#fff;
+      color:#000;
+      text-decoration:none;
+      border-radius:14px;
+      font-weight:800;
+    }
+    .center{text-align:center}
+  </style>
+</head>
+
+<body>
+
+<div class="wrap">
+  <p class="center">Mis XV</p>
+  <h1>Cami</h1>
+  <p class="subtitle">Te invito a compartir una noche inolvidable ✨</p>
+
+  <!-- DETALLES -->
+  <div class="card">
+    <div class="row">
+      <div class="label">Lugar</div>
+      <div>Clahe Eventos – Bernal</div>
+    </div>
+    <div class="row">
+      <div class="label">Fecha</div>
+      <div>Viernes 20/02/2026</div>
+    </div>
+    <div class="row">
+      <div class="label">Horario</div>
+      <div>22:00 a 05:00</div>
+    </div>
+    <div class="row">
+      <div class="label">Dirección</div>
+      <div>Yapeyú 479, Bernal, Buenos Aires</div>
+    </div>
+    <div class="row">
+      <div class="label">Dress code</div>
+      <div>Elegante</div>
+    </div>
+
+    <a class="btn" target="_blank"
+       href="https://www.google.com/maps?q=Yapey%C3%BA+479+Bernal+Buenos+Aires">
+      Cómo llegar
+    </a>
+  </div>
+
+  <!-- REGALOS -->
+  <div class="card">
+    <p style="line-height:1.6;color:var(--muted)">
+      El regalo más valioso para mí es poder compartir esta noche con vos,
+      celebrando mis 15 años.<br><br>
+      Tu compañía será siempre lo más importante, pero si deseas acompañarme
+      con un regalo, será bienvenido de la forma que elijas.<br><br>
+      Para quienes deseen la opción digital:
+    </p>
+    <strong>camiiferreyraa.mp</strong>
+  </div>
+
+  <div class="center">
+    <a class="btn"
+       href="https://wa.me/5491159595434?text=Hola!%20Confirmo%20asistencia%20a%20los%20XV%20de%20Cami%20✨"
+       target="_blank">
+      Confirmar asistencia
+    </a>
+  </div>
+</div>
+
+<!-- 🎵 Música -->
+<audio id="bgm" autoplay muted loop playsinline preload="auto">
+  <source src="diamonds.mp3">
+</audio>
+
+<script>
+  const audio = document.getElementById("bgm");
+  const START_AT = 55;
+
+  audio.play().catch(()=>{});
+
+  function unlock(){
+    audio.muted = false;
+    try{ audio.currentTime = START_AT }catch(e){}
+    audio.play().catch(()=>{});
+    document.removeEventListener("click", unlock);
+    document.removeEventListener("touchstart", unlock);
+  }
+  document.addEventListener("click", unlock, {passive:true});
+  document.addEventListener("touchstart", unlock, {passive:true});
+</script>
+
+</body>
+</html>
